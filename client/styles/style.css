@@ -1,0 +1,265 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'very_simple_chalk';
+    src: url('/client/fonts/very_simple_chalk-webfont.woff2') format('woff2'),
+        url('/client/fonts/very_simple_chalk-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'scratches';
+    src: url('/client/fonts/scratches-webfont.woff2') format('woff2'),
+    url('/client/fonts/scratches-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
+body {
+    font-family: 'very_simple_chalk', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width:100%;
+    background-color: #f0f0f0;
+    background-image: url('/client/images/0553d9d2ae7e576b66d34a1e0df8eab6.jpg');
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+}
+
+#body-mesa{
+    font-family: 'very_simple_chalk', sans-serif;
+    background-color: #f0f0f0;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('/client/images/0553d9d2ae7e576b66d34a1e0df8eab6.jpg');
+}
+
+/* <+++++++++++++++Inicio +++++++++++++++> */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.428);;
+}
+
+.titulo {
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 16.5em;
+}
+
+button {
+    background-color: #f9c80e;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'very_simple_chalk', sans-serif;;
+    /* position: relative;
+    left: 85px; */
+}
+
+button:hover {
+    background-color: #eeb701;
+    transform: translateY(-2px);
+}
+
+/* <+++++++++++++++PreJuego +++++++++++++++> */
+
+.container-2 {
+    font-size: 1.2rem;
+    margin: 2rem;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.74);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px 200px 120px auto;
+    gap: 20px;
+}
+
+.opciones ul {
+    margin-bottom: 15px;
+}
+
+
+.opciones li :nth-child(2n) {
+    margin-bottom: 12px;
+}
+
+.opciones label {
+    margin-right: 1.5rem;
+}
+
+.botonPre {
+    position: relative;
+    /* top: 1rem; */
+    left: 12%;
+}
+
+.container-grid p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.section-jugadores {
+    margin-top: 4.5rem;
+}
+
+/* <+++++++++++++++Juego +++++++++++++++> */
+
+.container-mano {
+    border: #333 solid;
+    border-radius: 10px;
+    padding: 10px 15px;
+    }
+
+.mesa-grid {
+    height: 80vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    padding: 5px;
+    }
+    #zona-baraja { grid-area: 1 / 1 / 2 / 2; }
+    #mano-arriba { grid-area: 1 / 2 / 2 / 3; }
+    #mano-derecha { grid-area: 2 / 3 / 3 / 4; }
+    #mano-izquierda { grid-area: 2 / 1 / 3 / 2; }
+    #mano-abajo { grid-area: 3 / 2 / 4 / 3; }
+    #zona-descarte { grid-area: 2 / 2 / 3 / 3; }
+    #div7 { grid-area: 1 / 3 / 2 / 4; }
+    #div8 { grid-area: 3 / 1 / 4 / 2; }
+    #div9 { grid-area: 3 / 3 / 4 / 4; }
+
+.mesa-grid > div {
+    border: 3px #333 solid;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.botonJuego {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.div-mano{
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    gap:2px;
+    justify-content: center;
+}
+
+.carta img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /*object-fit: cover;*/
+    object-position: center;
+    display: block;
+}
+/* <+++++++++++++++ResultadoJuego +++++++++++++++> */
+
+header {
+    text-align: center;
+    /* font-size: 2.5rem; */
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-top: 20px;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+
+table {
+    width: 100%; 
+    border-collapse: collapse; 
+    font-family: 'very_simple_chalk', sans-serif; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.224); 
+    background-color: #fff; 
+    table-layout: fixed;
+}
+
+th {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 12px 15px; 
+    text-align: left; 
+    border-bottom: 2px solid #ddd; 
+}
+
+
+td {
+    padding: 10px 15px; 
+    border-bottom: 1px solid #ddd; 
+    color: #333;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+tr:hover {
+    background-color: #ddd; 
+    cursor: pointer; 
+}
+
+
+td:first-child {
+    font-weight: bold; 
+}
+
+.botonResultado {
+    margin-bottom: 5rem;
+}
