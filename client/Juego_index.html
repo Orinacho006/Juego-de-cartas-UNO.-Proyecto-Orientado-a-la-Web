@@ -46,5 +46,24 @@
         <div class="espacio-grid" id="div9"></div>
     </div>
     <button class="botonJuego" onclick="window.location.href='ResultadoJuego_index.html'">boton</button>
+    <div id="selector-color" style="display:none;">
+        <div class="selector-color-box">
+            <span>Elige un color:</span>
+            <button class="color-btn" data-color="red" style="background:#e74c3c;">Rojo</button>
+            <button class="color-btn" data-color="green" style="background:#27ae60;">Verde</button>
+            <button class="color-btn" data-color="blue" style="background:#2980b9;">Azul</button>
+            <button class="color-btn" data-color="yellow" style="background:#f9c80e; color:#333;">Amarillo</button>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script>
+    window.onload = function() {
+        const numJugadores = localStorage.getItem('numJugadores') || 4;
+        startGame(Number(numJugadores));
+        mostrarTodasLasManos();
+        mostrarCartaDescarte();
+        mostrarMazo();
+    };
+    </script>
 </body>
 </html>

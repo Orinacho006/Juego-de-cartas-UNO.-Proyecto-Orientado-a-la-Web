@@ -88,13 +88,27 @@
                             <option value="4">4</option>
                             </select>
                         </li>
+                        <li>
+                            <label for="tipo-juego">Tipo de juego:</label>
+                            <select name="tipo-juego" id="tipo-juego" required>
+                                <option value="humanos">Todos humanos</option>
+                                <option value="bots">Todos bots (menos tú)</option>
+                            </select>
+                        </li>
                     </ul>
-                    
                 </div>
             </div>
         </section>
         <button class="botonPre" onclick="window.location.href='Juego_index.html'">Comenzar juego</button>
     </div>
    
+    <script>
+    document.querySelector('.botonPre').addEventListener('click', function(e) {
+        const numJugadores = document.getElementById('jugadores').value;
+        const tipoJuego = document.getElementById('tipo-juego').value;
+        localStorage.setItem('numJugadores', numJugadores);
+        localStorage.setItem('tipoJuego', tipoJuego);
+    });
+    </script>
 </body>
 </html>
