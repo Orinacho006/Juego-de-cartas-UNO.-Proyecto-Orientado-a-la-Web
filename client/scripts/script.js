@@ -100,15 +100,15 @@ function mostrarSelectorColor(callback) {
 
 function playCard(playerIndex, card) {
     const top = discardPile[discardPile.length - 1];
-    const colorToMatch = currentColor || top.color;
+    const colorToMatch = currentColor || top.color; //currentColor es el color actual del juego para comodines, top.color es el color de la carta superior del descarte
     if (
         card.color === colorToMatch ||
         card.value === top.value ||
         card.type === 'wild'
     ) {
-        const idx = players[playerIndex].cards.findIndex(c => c === card);
+        const idx = players[playerIndex].cards.findIndex(c => c === card); // busca el indice de la carta seleccionada en la mano del jugador
         if (idx !== -1) {
-            players[playerIndex].cards.splice(idx, 1);
+            players[playerIndex].cards.splice(idx, 1); //metodo splice de los arreglos que puede eliminar, reemplazar o agregar elementos. Splice idx, 1 elimina exactamente una carta (la jugada)de la mano del jugador
             discardPile.push(card);
 
             if (card.type === 'special') {
@@ -295,7 +295,7 @@ function turnoBot() {
         }, 2000); // espera de 2 segundos
     }
 }
-
+//hola todo bien 
 function mostrarTodasLasManos() {
     const posiciones = ['mano-abajo', 'mano-izquierda', 'mano-arriba', 'mano-derecha'];
     for (let i = 0; i < posiciones.length; i++) {
