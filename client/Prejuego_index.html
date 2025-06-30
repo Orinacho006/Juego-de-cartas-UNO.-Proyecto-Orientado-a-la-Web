@@ -82,10 +82,9 @@
                         <li>
                             <label for="jugadores">Selecciona la cantidad de jugadores:</label>
                             <select name="jugadores" id="jugadores" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </li>
                         <li>
@@ -102,12 +101,21 @@
         <button class="botonPre" onclick="window.location.href='Juego_index.html'">Comenzar juego</button>
     </div>
    
+    <div id="pantalla-carga" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#fff; z-index:2000; justify-content:center; align-items:center;">
+        <img src="images/imagenes decorativas/pantalla_carga.png" alt="Cargando..." style="max-width:60vw; max-height:60vh;">
+    </div>
+   
     <script>
     document.querySelector('.botonPre').addEventListener('click', function(e) {
         const numJugadores = document.getElementById('jugadores').value;
         const tipoJuego = document.getElementById('tipo-juego').value;
         localStorage.setItem('numJugadores', numJugadores);
         localStorage.setItem('tipoJuego', tipoJuego);
+        // Mostrar pantalla de carga
+        document.getElementById('pantalla-carga').style.display = 'flex';
+        setTimeout(function() {
+            window.location.href = 'Juego_index.html';
+        }, 2000);
     });
     </script>
 </body>

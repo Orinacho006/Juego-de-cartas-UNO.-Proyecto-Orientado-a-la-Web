@@ -133,10 +133,10 @@ function playCard(playerIndex, card) {
                             nextTurn();
                         }
                         mostrarTodasLasManos();
-                        mostrarCartaDescarte();
+                        mostrarCartaDescarte(true);
                         nextTurn();
                         mostrarTodasLasManos();
-                        mostrarCartaDescarte();
+                        mostrarCartaDescarte(true);
                         turnoBot();
                     });
                     return false; // Espera a que elija color
@@ -258,11 +258,11 @@ function turnoBot() {
     if (cartaJugada) {
         playCard(currentPlayerIndex, cartaJugada);
         mostrarTodasLasManos();
-        mostrarCartaDescarte();
+        mostrarCartaDescarte(true);
         setTimeout(() => {
             nextTurn();
             mostrarTodasLasManos();
-            mostrarCartaDescarte();
+            mostrarCartaDescarte(true);
             turnoBot(); // Por si hay varios bots seguidos
         }, 700);
     } else {
@@ -293,10 +293,10 @@ function mostrarTodasLasManos() {
                 img.addEventListener('click', function() {
                     if (playCard(currentPlayerIndex, card)) {
                         mostrarTodasLasManos();
-                        mostrarCartaDescarte();
+                        mostrarCartaDescarte(true);
                         nextTurn();
                         mostrarTodasLasManos();
-                        mostrarCartaDescarte();
+                        mostrarCartaDescarte(true);
                         turnoBot();
                     }
                 });
@@ -349,7 +349,7 @@ function mostrarTodasLasManos() {
     }
 }
 
-function mostrarCartaDescarte() {
+function mostrarCartaDescarte(animar = false) {
     const zonaDescarte = document.getElementById('zona-descarte');
     zonaDescarte.innerHTML = 'DESCARTE';
     if (discardPile.length > 0) {
@@ -358,14 +358,15 @@ function mostrarCartaDescarte() {
         img.src = obtenerRutaImagen(carta);
         img.alt = `${carta.value} ${carta.color}`;
         img.className = 'carta-img';
+        if (animar) img.classList.add('carta-animada');
         zonaDescarte.appendChild(img);
     }
-    // Mostrar el color actual siempre
+    // Mostrar solo el recuadro de color
     let color = currentColor;
     if (!color && discardPile.length > 0) color = discardPile[discardPile.length-1].color;
     const colorBox = document.createElement('div');
     colorBox.className = `color-actual color-${color || 'ninguno'}`;
-    colorBox.textContent = `Color actual: ${colorNombreEspanol(color)}`;
+    colorBox.textContent = 'Color';
     zonaDescarte.appendChild(colorBox);
 }
 
@@ -375,7 +376,7 @@ function colorNombreEspanol(color) {
         green: 'Verde',
         blue: 'Azul',
         yellow: 'Amarillo'
-    }[color] || 'Ninguno';
+    }
 }
 
 function mostrarMazo() {

@@ -321,6 +321,7 @@ td:first-child {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: background 0.2s;
 }
+
 .boton-uno:hover {
     background: #eeb701;
 }
@@ -339,3 +340,33 @@ td:first-child {
 .color-blue { background: #2980b9; }
 .color-yellow { background: #f9c80e; color: #333; }
 .color-ninguno { background: #fff; color: #333; }
+
+@keyframes lanzar-carta {
+    0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 #0000; }
+    50% { transform: scale(1.2) rotate(-10deg); box-shadow: 0 8px 24px #0003; }
+    100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 #0000; }
+}
+.carta-animada {
+    animation: lanzar-carta 0.4s cubic-bezier(.4,2,.6,1) 1;
+    z-index: 10;
+}
+
+.decoracion-esquina {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.decoracion-esquina-der {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
