@@ -45,7 +45,6 @@
         <div class="espacio-grid" id="div8"></div>
         <div class="espacio-grid" id="div9"></div>
     </div>
-    <button class="botonJuego" onclick="window.location.href='ResultadoJuego_index.html'">boton</button>
     <div id="selector-color" style="display:none;">
         <div class="selector-color-box">
             <span>Elige un color:</span>
@@ -53,6 +52,12 @@
             <button class="color-btn" data-color="green" style="background:#27ae60;">Verde</button>
             <button class="color-btn" data-color="blue" style="background:#2980b9;">Azul</button>
             <button class="color-btn" data-color="yellow" style="background:#f9c80e; color:#333;">Amarillo</button>
+        </div>
+    </div>
+    <div id="fin-partida-modal" class="fin-partida-modal" style="display:none;">
+        <div class="fin-partida-box">
+            <div class="fin-partida-titulo">Partida finalizada</div>
+            <button id="ver-puntaje-btn" class="fin-partida-btn">Ver puntaje</button>
         </div>
     </div>
     <script src="scripts/script.js"></script>

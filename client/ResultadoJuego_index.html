@@ -19,30 +19,38 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Jugadores</th>
-                        <th>Puntos</th>
+                        <th>Posición</th>
+                        <th>Jugador</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jugador 1</td>
-                        <td>x</td>
-                    </tr>
-                        <td>Jugador 3</td>
-                        <td>x</td>
-                    <tr>
-                        <td>Jugador 3</td>
-                        <td>x</td>
-                    </tr>
-                    <tr>
-                        <td>Jugador 4</td>
-                        <td>x</td>
-                    </tr>
+                    <!-- Aquí se llenará dinámicamente -->
                 </tbody>
             </table>
         </div>
         <button class="botonResultado" onclick="window.location.href='index.html'">Regresar Inicio</button>
     </main>
     
+    <script>
+    window.onload = function() {
+        const ranking = JSON.parse(localStorage.getItem('rankingSalida') || '[]');
+        const jugadores = JSON.parse(localStorage.getItem('players') || '[]');
+        const tableBody = document.querySelector('table tbody');
+        tableBody.innerHTML = '';
+        const medallas = ['🥇', '🥈', '🥉'];
+        ranking.forEach((jugadorId, idx) => {
+            const jugador = jugadores.find(j => j.id === jugadorId);
+            const tr = document.createElement('tr');
+            if (idx === 0) tr.className = 'primer-lugar';
+            const tdPos = document.createElement('td');
+            tdPos.textContent = (idx + 1) + 'º ' + (medallas[idx] || '');
+            const tdNombre = document.createElement('td');
+            tdNombre.textContent = jugador ? jugador.name : jugadorId.replace('player', 'Jugador ');
+            tr.appendChild(tdPos);
+            tr.appendChild(tdNombre);
+            tableBody.appendChild(tr);
+        });
+    }
+    </script>
 </body>
 </html>
