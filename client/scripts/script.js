@@ -78,7 +78,7 @@ function dealCards(){
     }
     // pone la primera carta en el descarte
     discardPile = [deck.pop()];
-    // Asegura que la primera carta no sea un +4
+    // asegura que la primera carta no sea un +4
     while (discardPile[0].value === 'draw4'){
         deck.unshift(discardPile.shift());
         discardPile.push(deck.pop());
@@ -208,7 +208,6 @@ function checkUNO(playerIndex){
 }
 
 function countPoints(winnerIndex){
-    // Suma los puntos de las cartas de los demás jugadores
     let points = 0;
     players.forEach((p,i)=>{
         if(i!==winnerIndex){
@@ -270,7 +269,7 @@ function turnoBot() {
     const bot = players[currentPlayerIndex];
     if (!bot || bot.isHuman) return;
 
-    // Buscar la primera carta jugable
+    // buscar la primera carta jugable
     const top = discardPile[discardPile.length - 1];
     const cartaJugada = bot.cards.find(card =>
         card.color === top.color || card.value === top.value || card.type === 'wild'
@@ -284,8 +283,8 @@ function turnoBot() {
             nextTurn();
             mostrarTodasLasManos();
             mostrarCartaDescarte(true);
-            turnoBot(); // Por si hay varios bots seguidos
-        }, 2000); // Espera de 2 segundos
+            turnoBot(); // por si hay varios bots seguidos
+        }, 2000); // espera de 2 segundos
     } else {
         drawCard(currentPlayerIndex);
         mostrarTodasLasManos();
@@ -293,7 +292,7 @@ function turnoBot() {
             nextTurn();
             mostrarTodasLasManos();
             turnoBot();
-        }, 2000); // Espera de 2 segundos
+        }, 2000); // espera de 2 segundos
     }
 }
 
@@ -302,7 +301,7 @@ function mostrarTodasLasManos() {
     for (let i = 0; i < posiciones.length; i++) {
         const div = document.getElementById(posiciones[i]);
         if (!div) continue;
-        // Si hay menos jugadores que la posición, ocultar el div
+        // si hay menos jugadores que la posición, ocultar el div
         if (i >= players.length) {
             div.style.visibility = 'hidden';
             div.style.pointerEvents = 'none';
@@ -337,7 +336,7 @@ function mostrarTodasLasManos() {
             }
             manoDiv.appendChild(img);
         });
-        // Si es el jugador actual, agrego botón para robar carta SIEMPRE que no tenga jugada válida
+        // si es el jugador actual, agrego botón para robar carta SIEMPRE que no tenga jugada válida
         if (i === currentPlayerIndex) {
             const puedeJugar = players[currentPlayerIndex].cards.some(card => {
                 const top = discardPile[discardPile.length - 1];
@@ -360,7 +359,7 @@ function mostrarTodasLasManos() {
             };
             manoDiv.appendChild(btnRoba);
 
-            // Botón UNO si solo queda una carta y no ha dicho UNO
+            // boton UNO si solo queda una carta y no ha dicho UNO
             if (
                 players[i].cards.length === 1 &&
                 players[i].isHuman &&
@@ -393,7 +392,7 @@ function mostrarCartaDescarte(animar = false) {
         if (animar) img.classList.add('carta-animada');
         zonaDescarte.appendChild(img);
     }
-    // Mostrar solo el recuadro de color
+    // mostrar solo el recuadro de color
     let color = currentColor;
     if (!color && discardPile.length > 0) color = discardPile[discardPile.length-1].color;
     const colorBox = document.createElement('div');
