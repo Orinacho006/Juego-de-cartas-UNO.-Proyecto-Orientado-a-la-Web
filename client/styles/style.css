@@ -60,7 +60,7 @@ body {
     background-color: rgba(255, 255, 255, 0.428);;
 }
 
-.titulo {
+.title {
     margin-bottom: 40px;
     font-weight: bold;
     font-size: 16.5em;
@@ -76,7 +76,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'very_simple_chalk', sans-serif;;
+    font-family: 'very_simple_chalk', sans-serif;
     /* position: relative;
     left: 85px; */
 }
@@ -106,23 +106,27 @@ button:hover {
     gap: 20px;
 }
 
-.opciones ul {
+.options ul {
     margin-bottom: 15px;
 }
 
 
-.opciones li :nth-child(2n) {
+.options li :nth-child(2n) {
     margin-bottom: 12px;
 }
 
-.opciones label {
+.options label {
     margin-right: 1.5rem;
 }
 
-.botonPre {
+.buttonPre {
     position: relative;
     /* top: 1rem; */
     left: 12%;
+}
+
+.checkbox-big {
+    transform: scale(1.5);
 }
 
 .container-grid p {
@@ -131,8 +135,12 @@ button:hover {
     font-weight: bold;
 }
 
-.section-jugadores {
+.section-players {
     margin-top: 4.5rem;
+}
+
+.font-numberOfPlayers {
+    font-family: 'very_simple_chalk', sans-serif;;
 }
 
 /* <+++++++++++++++Juego +++++++++++++++> */
@@ -307,7 +315,7 @@ td:first-child {
     font-weight: bold; 
 }
 
-.botonResultado {
+.buttonResults {
     margin-bottom: 5rem;
 }
 

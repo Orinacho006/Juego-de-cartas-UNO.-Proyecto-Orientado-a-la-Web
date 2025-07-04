@@ -12,20 +12,20 @@
 <body>
     <div class="container-2">
         <section class="container-grid">
-            <div class="section-Reglas">
+            <div class="section-Rules">
                 <p>Reglas de Casa</p>
-                <div class="opciones">
+                <div class="options">
                     <ol>
-                        <li><label for="regla-1">UNO Progresivo</label>
-                            <input type="checkbox" name="regla-1" id="regla-1" required>
+                        <li><label for="rule-1">UNO Progresivo</label>
+                            <input type="checkbox" name="rule-1" id="rule-1" class="checkbox-big" required>
                         </li>
                             
-                        <li><label for="regla-2">UNO Siete-Cero</label>
-                            <input type="checkbox" name="regla-2" id="regla-2" required>
+                        <li><label for="rule-2">UNO Siete-Cero</label>
+                            <input type="checkbox" name="rule-2" id="rule-2" class="checkbox-big" required>
                         </li>
                             
-                        <li><label for="regla-3">UNO® Jump-In (Intervención Rápida)</label>
-                            <input type="checkbox" name="regla-3" id="regla-3" required>
+                        <li><label for="rule-3">UNO® Jump-In (Intervención Rápida)</label>
+                            <input type="checkbox" name="rule-3" id="rule-3" class="checkbox-big" required>
                         </li>
                     </ol>
                 </div>
@@ -33,10 +33,10 @@
                     
             <div class="section-powerups">
                 <p>Power Ups</p>
-                <div class="opciones">
+                <div class="options">
                     <ol>
                         <li><label for="powerup-1">Carta Bomba</label>
-                            <input type="checkbox" name="powerup-1" id="powerup-1" required>
+                            <input type="checkbox" name="powerup-1" id="powerup-1" class="checkbox-big" required>
                         </li>
                         <ul>
                             <li>Se coloca en la zona de descarte y explota después de 3 turnos.</li>
@@ -44,28 +44,28 @@
                             <li><strong>Costo:</strong> -10 puntos.</li>
                         </ul>
                         <li><label for="powerup-2">Escudo</label>
-                            <input type="checkbox" name="powerup-2" id="powerup-2" required>
+                            <input type="checkbox" name="powerup-2" id="powerup-2" class="checkbox-big" required>
                         </li>
                         <ul>
                             <li>Protege de cualquier penalización (+2, +4, bomba, etc.) por un turno</li>
                             <li><strong>Costo:</strong> -15 puntos.</li>
                         </ul>
                         <li><label for="powerup-3">Robo Forzado</label>
-                            <input type="checkbox" name="powerup-3" id="powerup-3" required>
+                            <input type="checkbox" name="powerup-3" id="powerup-3" class="checkbox-big" required>
                         </li>
                         <ul>
                             <li>Fuerza a un oponente a intercambiar su mano contigo.</li>
                             <li><strong>Costo:</strong> -20 puntos</li>
                         </ul>
                         <li><label for="powerup-4">Carta Camaleón</label>
-                            <input type="checkbox" name="powerup-4" id="powerup-4" required>
+                            <input type="checkbox" name="powerup-4" id="powerup-4" class="checkbox-big" required>
                         </li>
                         <ul>
                             <li>Se puede jugar en cualquier momento y copia la última carta jugada.</li>
                             <li><strong>Costo:</strong> -15 puntos</li>
                         </ul>
                         <li><label for="powerup-5">Rebote</label>
-                            <input type="checkbox" name="powerup-5" id="powerup-5" required>
+                            <input type="checkbox" name="powerup-5" id="powerup-5" class="checkbox-big" required>
                         </li>
                         <ul>
                             <li>Si te tiran un +2 o +4, puedes rebotarlo a otro jugador en vez de recibirlo.</li>
@@ -75,22 +75,22 @@
                 </div>
             </div>
 
-            <div class="section-jugadores">
+            <div class="section-players">
                 <p>Cantidad de Jugadores</p>
-                <div class="cantidad-jugadores">
+                <div class="number-of-players">
                     <ul>
                         <li>
-                            <label for="jugadores">Selecciona la cantidad de jugadores:</label>
-                            <select name="jugadores" id="jugadores" required>
+                            <label for="players">Selecciona la cantidad de jugadores:</label>
+                            <select name="players" id="players" class="font-numberOfPlayers" required>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
                         </li>
                         <li>
-                            <label for="tipo-juego">Tipo de juego:</label>
-                            <select name="tipo-juego" id="tipo-juego" required>
-                                <option value="humanos">Todos humanos</option>
+                            <label for="game-type">Tipo de juego:</label>
+                            <select name="game-type" id="game-type" class="font-numberOfPlayers" required>
+                                <option value="humans">Todos humanos</option>
                                 <option value="bots">Todos bots (menos tú)</option>
                             </select>
                         </li>
@@ -98,23 +98,23 @@
                 </div>
             </div>
         </section>
-        <button class="botonPre" onclick="window.location.href='Juego_index.html'">Comenzar juego</button>
+        <button class="buttonPre" onclick="window.location.href='Game_index.html'">Comenzar juego</button>
     </div>
    
-    <div id="pantalla-carga" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#fff; z-index:2000; justify-content:center; align-items:center;">
+    <div id="loading-screen" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#fff; z-index:2000; justify-content:center; align-items:center;">
         <img src="images/imagenes decorativas/pantalla_carga.png" alt="Cargando..." style="max-width:60vw; max-height:60vh;">
     </div>
    
     <script>
-    document.querySelector('.botonPre').addEventListener('click', function(e) {
-        const numJugadores = document.getElementById('jugadores').value;
-        const tipoJuego = document.getElementById('tipo-juego').value;
+    document.querySelector('.buttonPre').addEventListener('click', function(e) {
+        const numJugadores = document.getElementById('players').value;
+        const tipoJuego = document.getElementById('game-type').value;
         localStorage.setItem('numJugadores', numJugadores);
         localStorage.setItem('tipoJuego', tipoJuego);
         // Mostrar pantalla de carga
-        document.getElementById('pantalla-carga').style.display = 'flex';
+        document.getElementById('loading-screen').style.display = 'flex';
         setTimeout(function() {
-            window.location.href = 'Juego_index.html';
+            window.location.href = 'Game_index.html';
         }, 2000);
     });
     </script>

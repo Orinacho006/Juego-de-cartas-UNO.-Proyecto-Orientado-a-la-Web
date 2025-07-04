@@ -430,7 +430,7 @@ function mostrarMensajeFinal() {
     if (!modal) return;
     modal.style.display = 'flex';
     document.getElementById('ver-puntaje-btn').onclick = function() {
-        window.location.href = 'ResultadoJuego_index.html';
+        window.location.href = 'GameResults_index.html';
     };
 }
 
